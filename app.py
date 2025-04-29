@@ -18,7 +18,6 @@ category = st.selectbox("Category", ["Food", "Furniture", "Clothing", "Toy", "Gr
 region = st.selectbox("Region", ["North", "South", "East", "West"])
 weather = st.selectbox("Weather", ["Sunny", "Cloudy", "Rainy", "Snowy"])
 promotion_str = st.selectbox("Promotion", ["Yes", "No"])
-promotion = True if promotion_str == "Yes" else False
 seasonality = st.selectbox("Seasonality", ["Spring", "Summer", "Autumn", "Winter"])
 
 inventory = st.number_input("Inventory", step=0.1)
@@ -49,13 +48,6 @@ if st.button("Predict Demand"):
 
         # Encode categorical columns only
         encoded_cat = encoder.transform(cat_df)
-        
-        # Convert sparse matrix to DataFrame
-        encoded_cat_df = pd.DataFrame(
-            encoded_cat.toarray(),
-            columns=encoder.get_feature_names_out()
-        )
-
         # Concatenate with numeric data
         final_input = pd.concat([encoded_cat, num_df], axis=1)
 
