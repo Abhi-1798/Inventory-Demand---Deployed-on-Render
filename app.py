@@ -29,11 +29,11 @@ if st.button("Predict Demand"):
     try:
         # Prepare input data
         categorical_data = {
-            'Category': category,
-            'Region': region,
-            'Weather': weather,
-            'Promotion': promotion,
-            'Seasonality': seasonality
+            'Category': Category,
+            'Region': Region,
+            'Weather': Weather,
+            'Promotion': Promotion,
+            'Seasonality': Seasonality
         }
 
         numeric_data = {
