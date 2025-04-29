@@ -48,10 +48,15 @@ if st.button("Predict Demand"):
 
         # Encode categorical columns only
         encoded_cat = encoder.transform(cat_df)
-        # Concatenate with numeric data
-        final_input = pd.concat([encoded_cat, num_df], axis=1)
+        encoded_cat_df = pd.DataFrame(
+            encoded_cat.toarray(), 
+            columns=encoder.get_feature_names_out()
+        )
 
+        # Concatenate and predict
+        final_input = pd.concat([encoded_cat_df, num_df], axis=1)
         prediction = model.predict(final_input)
+
         st.success(f"📦 Predicted Demand: {prediction[0]:.2f}")
 
     except Exception as e:
