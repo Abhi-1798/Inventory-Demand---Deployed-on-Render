@@ -1,41 +1,46 @@
-
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
 import numpy as np
 import pandas as pd
 
-# Load the model and encoder from the pickle file
-with open('linear_regression_model_bundle.pkl', 'rb') as f:
+# Load the model and encoder
+with open("linear_regression_model_bundle.pkl", "rb") as f:
     bundle = pickle.load(f)
-
-model = bundle['model']
-encoder = bundle['encoder']
+    model = bundle["model"]
+    encoder = bundle["encoder"]
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Linear Regression Model is up and running!"
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Expecting JSON input
-        input_data = request.get_json()
+        # Extract form data
+        input_data = {
+            'Category': request.form['Category'],
+            'Region': request.form['Region'],
+            'Weather': request.form['Weather'],
+            'Promotion': request.form['Promotion'],
+            'Seasonality': request.form['Seasonality'],
+            'Inventory': float(request.form['Inventory']),
+            'Sales': float(request.form['Sales']),
+            'Price': float(request.form['Price']),
+            'Discount': float(request.form['Discount'])
+        }
 
-        # Convert input JSON to DataFrame
+        # Create dataframe and transform
         input_df = pd.DataFrame([input_data])
+        X_transformed = encoder.transform(input_df)
 
-        # Apply encoder (if any preprocessing is needed)
-        transformed_data = encoder.transform(input_df)
-
-        # Make prediction
-        prediction = model.predict(transformed_data)
-
-        return jsonify({'prediction': prediction.tolist()})
+        # Predict
+        prediction = model.predict(X_transformed)
+        return render_template('index.html', prediction_text=f"Predicted Demand: {prediction[0]:.2f}")
 
     except Exception as e:
-        return jsonify({'error': str(e)})
+        return render_template('index.html', prediction_text=f"Error: {str(e)}")
 
 if __name__ == '__main__':
     app.run(debug=True)
