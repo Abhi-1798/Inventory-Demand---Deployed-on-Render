@@ -39,7 +39,7 @@ if auth_status:
 
     st.markdown("### Enter Input Features:")
 
-    category = st.selectbox("Category", ["Food", "Furniture", "Clothing", "Toy", "Groceries"])
+    category = st.selectbox("Category", ["Electronics", "Furniture", "Clothing", "Toy", "Groceries"])
     region = st.selectbox("Region", ["North", "South", "East", "West"])
     weather = st.selectbox("Weather", ["Sunny", "Cloudy", "Rainy", "Snowy"])
     promotion = st.selectbox("Promotion", ["Yes", "No"])
