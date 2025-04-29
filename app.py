@@ -8,6 +8,7 @@ with open("linear_regression_model_bundle.pkl", "rb") as f:
     bundle = pickle.load(f)
     model = bundle["model"]
     encoder = bundle["encoder"]
+    selected_features = bundle["selected_features"]
 
 # Streamlit UI
 st.title("🛒 Retail Demand Prediction App")
@@ -55,6 +56,9 @@ if st.button("Predict Demand"):
 
         # Concatenate and predict
         final_input = pd.concat([encoded_cat_df, num_df], axis=1)
+
+        # Selecting features
+        final_input = final_input[selected_features]
         prediction = model.predict(final_input)
 
         st.success(f"📦 Predicted Demand: {prediction[0]:.2f}")
