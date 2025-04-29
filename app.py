@@ -25,6 +25,9 @@ inventory = st.number_input("Inventory", step=0.1)
 sales = st.number_input("Sales", step=0.1)
 price = st.number_input("Price", step=0.1)
 discount = st.number_input("Discount", step=0.1)
+orders = st.number_input("Orders", step=0.1)
+competitor_pricing = st.number_input("Competitor Pricing", step=0.1)
+
 
 if st.button("Predict Demand"):
     try:
@@ -41,7 +44,9 @@ if st.button("Predict Demand"):
             'Inventory': inventory,
             'Sales': sales,
             'Price': price,
-            'Discount': discount
+            'Discount': discount,
+            'Orders': orders,
+            'Competitor_Pricing': competitor_pricing
         }
 
         cat_df = pd.DataFrame([categorical_data])
