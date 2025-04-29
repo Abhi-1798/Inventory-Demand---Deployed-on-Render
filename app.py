@@ -17,7 +17,7 @@ st.markdown("### Enter Input Features:")
 category = st.selectbox("Category", ["Food", "Furniture", "Clothing", "Toy", "Groceries"])
 region = st.selectbox("Region", ["North", "South", "East", "West"])
 weather = st.selectbox("Weather", ["Sunny", "Cloudy", "Rainy", "Snowy"])
-promotion_str = st.selectbox("Promotion", ["Yes", "No"])
+promotion = st.selectbox("Promotion", ["Yes", "No"])
 seasonality = st.selectbox("Seasonality", ["Spring", "Summer", "Autumn", "Winter"])
 
 inventory = st.number_input("Inventory", step=0.1)
