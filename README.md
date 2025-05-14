@@ -1,10 +1,10 @@
-🛒 Retail Demand Forecasting Web App
+# 🛒 Retail Demand Forecasting Web App : 
 This is an end-to-end machine learning project that predicts product demand in a retail setting based on dynamic business features like category, seasonality, promotions, pricing, and more.
 
-🔍 Problem Statement
+# 🔍 Problem Statement : 
 Retailers need accurate demand forecasts to optimize inventory and avoid stockouts or overstock. This web app enables real-time demand prediction using a trained ML model.
 
-🚀 Features
+# 🚀 Features : 
 🔢 Linear Regression model trained on selected retail features
 
 🎯 RFE + SelectKBest for robust feature selection
@@ -17,12 +17,12 @@ Retailers need accurate demand forecasts to optimize inventory and avoid stockou
 
 ☁️ Deployed on Render
 
-🧠 Model Input Features
-Categorical: Category, Region, Weather, Promotion, Seasonality
+# 🧠 Model Input Features : 
+### Categorical: Category, Region, Weather, Promotion, Seasonality
 
-Numerical: Inventory, Sales, Price, Discount, Orders, Competitor_Pricing
+### Numerical: Inventory, Sales, Price, Discount, Orders, Competitor_Pricing
 
-🛠 Tech Stack
+# 🛠 Tech Stack
 Python, pandas, numpy
 
 scikit-learn
@@ -33,7 +33,7 @@ streamlit-authenticator
 
 Render (for cloud deployment)
 
-📦 How to Use
+# 📦 How to Use
 Login using your credentials
 
 Enter feature values in the input form
@@ -42,9 +42,8 @@ Click Predict Demand
 
 View the predicted value immediately
 
-📁 Deployment
+# 📁 Deployment
 The app is live and accessible at:
 🔗 https://inventory-demand-deployed-on-render.onrender.com/
 
-User Name: abhishek
-Password: 1234567
+User Name: abhishek  Password: 1234567
