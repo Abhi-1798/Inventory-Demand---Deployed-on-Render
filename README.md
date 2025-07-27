@@ -46,4 +46,5 @@ View the predicted value immediately
 The app is live and accessible at:
 🔗 https://inventory-demand-deployed-on-render.onrender.com/
 
-User Name: abhishek & Password: 1234567
+**User Name:** abhishek        
+**Password:** 1234567
